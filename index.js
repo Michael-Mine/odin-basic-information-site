@@ -1,8 +1,11 @@
 import http from "node:http";
 import fs from "node:fs";
 
+const hostname = "localhost";
+const port = 8000;
+
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
+  console.log("requested " + req.method + " at " + req.url);
 
   res.setHeader("Content-Type", "text/html");
 
@@ -36,4 +39,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(8000);
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});

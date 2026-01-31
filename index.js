@@ -6,7 +6,27 @@ const server = http.createServer((req, res) => {
 
   res.setHeader("Content-Type", "text/html");
 
-  fs.readFile("./pages/index.html", (err, data) => {
+  let path = "./pages/";
+  switch (req.url) {
+    case "/":
+      path += "index.html";
+      res.statusCode = 200;
+      break;
+    case "/about":
+      path += "about.html";
+      res.statusCode = 200;
+      break;
+    case "/contact-me":
+      path += "contact-me.html";
+      res.statusCode = 200;
+      break;
+    default:
+      path += "404.html";
+      res.statusCode = 404;
+      break;
+  }
+
+  fs.readFile(path, (err, data) => {
     if (err) {
       console.log(err);
       res.end();
@@ -14,17 +34,6 @@ const server = http.createServer((req, res) => {
       res.end(data);
     }
   });
-
-  //   res.write("<p>hello world!</p>");
-  //   res.end();
-
-  //   res.writeHead(200, { "Content-Type": "application/json" });
-  //   console.log("response made");
-  //   res.end(
-  //     JSON.stringify({
-  //       data: "Hello World!",
-  //     })
-  //   );
 });
 
 server.listen(8000);

@@ -1,0 +1,20 @@
+{
+  "name": "odin-basic-information-site",
+  "version": "1.0.0",
+  "description": "A basic information site using a vanilla Node.js server",
+  "homepage": "https://github.com/Michael-Mine/odin-basic-information-site#readme",
+  "bugs": {
+    "url": "https://github.com/Michael-Mine/odin-basic-information-site/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michael-Mine/odin-basic-information-site.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
